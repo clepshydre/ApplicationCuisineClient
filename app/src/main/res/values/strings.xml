@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Cuisine</string>
+    <string name="title_activity_home_page">HomePageActivity</string>
+    <string name="home_title">Accueil</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="main_title">Bienvenue sur Cuisine</string>
+    <string name="main_sub_title">L’application qui vous permet de créer votre carnet de recette pour conserver toutes vos recettes préférés et qui vous propose de l’agrandir en vous faisant découvrir de nouvelles recettes faites pour vous</string>
+    <string name="main_email">Email</string>
+    <string name="main_password">Mot de passe</string>
+    <string name="main_inscription_button">Créer un compte</string>
+    <string name="main_connexion_button">Se connecter</string>
+    <string name="account_title">Compte</string>
+    <string name="favorite_title">Favoris</string>
+    <string name="mon_budget">Mon budget:</string>
+    <string name="information_user_first_description">Ici vous pouvez renseigner vos informations afin que l\'application vous propose des recettes adapté pour vous. Vous pouvez le faire maintenant ou passer et y revenir plus tard</string>
+    <string name="date_de_naissance">Date de naissance:</string>
+    <string name="je_suis">Je suis:</string>
+    <string name="male">Un cuisinier</string>
+    <string name="female">Une cuisinière</string>
+    <string name="level">Mon niveau :</string>
+    <string name="beginner">Débutant</string>
+    <string name="middle">Intermédiaire</string>
+    <string name="expert">Expert</string>
+    <string name="save">Enregistrer</string>
+    <string name="skip">Passer</string>
+    <string name="recipe_title">Vos recettes préférés</string>
+    <string name="favorite_sub_title">Vous Retrouverez ici toutes les recettes que vous avez aimé</string>
+    <string name="no_liked_recipe">Vous n\'avez pas encore aimé de recettes</string>
+
+</resources>
