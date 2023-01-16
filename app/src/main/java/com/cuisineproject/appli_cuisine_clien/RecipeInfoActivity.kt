@@ -1,6 +1,5 @@
 package com.cuisineproject.appli_cuisine_clien
 
-import android.R
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -8,8 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.cuisineproject.appli_cuisine_clien.constant.URL_IMAGE
 import com.cuisineproject.appli_cuisine_clien.databinding.ActivityRecipeInfoBinding
+import com.cuisineproject.appli_cuisine_clien.dto.IngredientDTO
+import com.cuisineproject.appli_cuisine_clien.dto.InstructionDTO
+import com.cuisineproject.appli_cuisine_clien.dto.RecipeDisplayDTO
 import com.cuisineproject.appli_cuisine_clien.viewmodel.RecipeInfoViewModel
 import com.squareup.picasso.Picasso
+import java.text.DecimalFormat
 
 
 class RecipeInfoActivity : AppCompatActivity() {
@@ -20,69 +23,123 @@ class RecipeInfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        var linearLayout: LinearLayout = binding.root
 
         model.dataShow.observe(this){ recipe ->
             if(recipe != null) {
-                binding.tvTitleRecipe.text = recipe.name
-
-                val url = URL_IMAGE + recipe.image
-                Picasso.with(this).load(url).into(binding.ivRecipe)
-
-                binding.tvTotalTime.text = recipe.totalTime.toString()
-
-                if (recipe.difficulty == 1) {
-                    binding.tvCookingLevel.text = "Facile"
-                } else if (recipe.difficulty == 2) {
-                    binding.tvCookingLevel.text = "Moyen"
-                } else {
-                    binding.tvCookingLevel.text = "Difficile"
-                }
-
-                if (recipe.cost == 1) {
-                    binding.tvBudgetLevel.text = "€"
-                } else if (recipe.cost == 2) {
-                    binding.tvBudgetLevel.text = "€€"
-                } else {
-                    binding.tvBudgetLevel.text = "€€"
-                }
-
-                val textView = TextView(this)
-                val titleTV = TextView(this)
-
-                titleTV.setTextAppearance(com.cuisineproject.appli_cuisine_clien.R.style.title_style)
-                titleTV.text = "Ingredients"
-                linearLayout.addView(titleTV)
-                recipe.listIngredientDTO.forEach { ingredient ->
-                    textView.text = "${ingredient.quantity} ${ingredient.unit}: ${ingredient.name} "
-                    linearLayout.addView(textView)
-                }
-
-                titleTV.text = "Temps"
-                linearLayout.addView(titleTV)
-                textView.text = "Préparation: ${recipe.preparationTime}min"
-                linearLayout.addView(textView)
-                textView.text = "Repos: ${recipe.waitingTime}min"
-                linearLayout.addView(textView)
-                textView.text = "Cuisson: ${recipe.cookingTime}min"
-                linearLayout.addView(textView)
-
-                titleTV.text = "Préparation"
-                linearLayout.addView(titleTV)
-                val step = 1
-                recipe.listInstructionDTO.forEach { instruction ->
-                    textView.text = "Étape $step:"
-                    linearLayout.addView(textView)
-                    textView.text = instruction.instruction
-                    linearLayout.addView(textView)
-                }
+                displayRecipe(recipe)
             }
         }
+            model.getRecipe(getId())
+}
+
+    private fun displayRecipe(recipe: RecipeDisplayDTO) {
+        setTitleRecipe(recipe.name)
+        setImage(recipe.image)
+        setTotalTime(recipe.totalTime)
+        setDifficulty(recipe.difficulty)
+        setCost(recipe.cost)
+        setIngredients(recipe.listIngredientDTO)
+        setTimeSection(recipe)
+        setPreparationSection(recipe.listInstructionDTO)
+
+    }
+
+    private fun setTitleRecipe(name:String?){
+        binding.tvTitleRecipe.text = name
+    }
+
+    private fun setImage(image: String?) {
+        val url = URL_IMAGE + image
+        Picasso.with(this).load(url).into(binding.ivRecipe)
+    }
+
+    private fun setTotalTime(totalTime: Int?) {
+        binding.tvTotalTime.text = totalTime.toString()+ "min"
+    }
+
+    private fun setDifficulty(difficulty: Int?) {
+        when (difficulty) {
+            1 -> {
+                binding.tvCookingLevel.text = "Facile"
+            }
+            2 -> {
+                binding.tvCookingLevel.text = "Moyen"
+            }
+            else -> {
+                binding.tvCookingLevel.text = "Difficile"
+            }
+        }
+    }
+    private fun setCost(cost: Int?) {
+        when (cost) {
+            1 -> {
+                binding.tvBudgetLevel.text = "€"
+            }
+            2 -> {
+                binding.tvBudgetLevel.text = "€€"
+            }
+            else -> {
+                binding.tvBudgetLevel.text = "€€"
+            }
+        }
+    }
+
+    private fun setIngredients(listIngredientDTO: List<IngredientDTO>) {
+        addTitleTextView("Ingrédients:")
+        listIngredientDTO.forEach { ingredient ->
+            addTextView("${removeDecimalZero(ingredient.quantity)} ${ingredient.unit}: ${ingredient.name}")
+        }
+    }
+    private fun removeDecimalZero(quantity: Double?): String? {
+        var format = DecimalFormat("0.#")
+        return format.format(quantity)
+    }
+    private fun setTimeSection(recipe: RecipeDisplayDTO) {
+        addTitleTextView("Temps:")
+        addTextView("Préparation: ${recipe.preparationTime}min")
+        addTextView("Repos: ${recipe.waitingTime}min")
+        addTextView("Cuisson: ${recipe.cookingTime}min")
+    }
+
+    private fun setPreparationSection(listInstructionDTO: List<InstructionDTO>) {
+        addTitleTextView("Instructions:")
+        var step = 1
+        listInstructionDTO.forEach { instruction ->
+            addTextView("Étape $step:")
+            instruction.instruction?.let { addTextView(it) }
+            step++
+        }
+    }
+
+    private fun addTitleTextView(text: String){
+        val titleTV = TextView(this)
+        titleTV.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        titleTV.setTextAppearance(R.style.title_style)
+        titleTV.text = text
+        binding.principalLayout.addView(titleTV)
+    }
+
+    private fun addTextView(text: String){
+        val textView = TextView(this)
+        textView.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        textView.text = text
+        binding.principalLayout.addView(textView)
+    }
+    private fun getId(): Int {
         val id = intent.getStringExtra("id")
-        if( id != null) {
+        return if( id != null) {
             println("id not null")
-            val id = intent.getStringExtra("id")!!.toInt()
-            model.getRecipe(id)
+            intent.getStringExtra("id")!!.toInt()
+        }else{
+            println("id null")
+            0
         }
     }
 }
+

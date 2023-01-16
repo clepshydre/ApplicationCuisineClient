@@ -79,4 +79,9 @@ object RecipeUtils {
         //Retourner la donnée
         return gson.fromJson(jsonResponse,RecipeDisplayDTO::class.java )
     }
+
+    fun createRecipe(recipe: RecipeDisplayDTO) {
+        val json = gson.toJson(recipe)
+        RequestUtils.sendPost(URL_CREATE_RECIPE, json)
+    }
 }

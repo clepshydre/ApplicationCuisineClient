@@ -28,4 +28,13 @@ const val URL_TRENDING_RECIPES = "http://212.194.251.187:8080/recipe/getTrending
 
 const val URL_RECIPE_BY_ID = "http://212.194.251.187:8080/recipe/postRecipeById"
 
+const val URL_CREATE_RECIPE = "http://212.194.251.187:8080/recipe/createRecipe"
+
 const val URL_IMAGE = "http://212.194.251.187:8080/recipe_image/"
+
+
+const val ERROR_MESSAGE_INVALID_MAIL ="Votre adresse mail n'est pas valide"
+
+const val ERROR_MESSAGE_INVALID_PASSWORD = "Le mot de passe doit être au minimum de 8 caractères et posséder une lettre et un chiffre"
+
+const val SUCCESS_MESSAGE_CREATION_ACCOUNT = "Votre compte a bien été créé"

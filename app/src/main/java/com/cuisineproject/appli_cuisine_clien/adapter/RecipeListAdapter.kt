@@ -1,51 +1,21 @@
 package com.cuisineproject.appli_cuisine_clien.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cuisineproject.appli_cuisine_clien.constant.URL_IMAGE
 import com.cuisineproject.appli_cuisine_clien.databinding.RowRecipeBinding
 import com.cuisineproject.appli_cuisine_clien.dto.RecipeRVDTO
 import com.squareup.picasso.Picasso
 
-class RecipeListAdapter(recipeRVDTOList: List<RecipeRVDTO>, listener: RecipeListAdapterListener) :
-    RecyclerView.Adapter<RecipeListAdapter.MyViewHolder>() {
+class RecipeListAdapter(var recipesRVDTO: List<RecipeRVDTO>, var recipesAdapterListener: RecipeListAdapterListener) :
+    RecyclerView.Adapter<RecipeListAdapter.ViewHolder>() {
 
-    private var recipeList: List<RecipeRVDTO>
-    var context: Context? = null
-    var onClickListener: RecipeListAdapterListener
 
-    inner class MyViewHolder(var binding : RowRecipeBinding) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.ivLike.setOnClickListener { v ->
-                onClickListener?.likeOnClick(
-                    v,
-                    adapterPosition
-                )
-            }
-            binding.ivUnlike.setOnClickListener { v ->
-                onClickListener?.unlikeOnClick(
-                    v,
-                    adapterPosition
-                )
-            }
-            binding.ivRecipe.setOnClickListener { v ->
-                onClickListener?.displayRecipeOnClick(
-                    v,
-                    adapterPosition
-                )
-            }
-        }
-    }
+    class ViewHolder(var binding : RowRecipeBinding) : RecyclerView.ViewHolder(binding.root)
 
-    init {
-        recipeList = recipeRVDTOList
-        onClickListener = listener
-    }
 
     class Comparator : DiffUtil.ItemCallback<RecipeRVDTO>() {
         override fun areItemsTheSame(oldItem: RecipeRVDTO, newItem: RecipeRVDTO): Boolean =
@@ -56,13 +26,13 @@ class RecipeListAdapter(recipeRVDTOList: List<RecipeRVDTO>, listener: RecipeList
             false
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder =
-        MyViewHolder(RowRecipeBinding.inflate(LayoutInflater.from(parent.context)))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
+        ViewHolder(RowRecipeBinding.inflate(LayoutInflater.from(parent.context)))
 
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val context = holder.binding.rowContainer.context
-        val currentItem = recipeList[position]
+        val currentItem = recipesRVDTO[position]
 
         val url = URL_IMAGE + currentItem.image
         Picasso.with(context).load(url).into(holder.binding.ivRecipe)
@@ -79,24 +49,24 @@ class RecipeListAdapter(recipeRVDTOList: List<RecipeRVDTO>, listener: RecipeList
             }
         }
         holder.binding.ivRecipe.setOnClickListener{
-            onClickListener.displayRecipeOnClick(it,position)
+            recipesAdapterListener.displayRecipeOnClick(it,position)
         }
 
         holder.binding.ivLike.setOnClickListener{
             it.visibility = View.GONE
             holder.binding.ivUnlike.visibility = View.VISIBLE
-            onClickListener.likeOnClick(it,position)
+            recipesAdapterListener.likeOnClick(it,position)
         }
 
         holder.binding.ivUnlike.setOnClickListener{
             holder.binding.ivLike.visibility = View.VISIBLE
             it.visibility = View.GONE
-            onClickListener.unlikeOnClick(it,position)
+            recipesAdapterListener.unlikeOnClick(it,position)
         }
     }
 
     override fun getItemCount(): Int {
-        return recipeList.count()
+        return recipesRVDTO.count()
     }
 }
 

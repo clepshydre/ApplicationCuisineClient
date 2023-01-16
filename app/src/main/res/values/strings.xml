@@ -27,5 +27,9 @@
     <string name="recipe_title">Vos recettes préférés</string>
     <string name="favorite_sub_title">Vous Retrouverez ici toutes les recettes que vous avez aimé</string>
     <string name="no_liked_recipe">Vous n\'avez pas encore aimé de recettes</string>
+    <string name="navigation_create_recipe">Créer recette</string>
+    <string name="create_recipe_subtitle">Merci de renseigner tous les éléments de votre recette</string>
+    <string name="create_recipe_title">Ajouter une recette</string>
+    <string name="recipe_title_">Titre de la recette</string>
 
 </resources>

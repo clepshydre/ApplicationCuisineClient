@@ -15,5 +15,9 @@
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/account_title" />
-
+    <item
+        android:id="@+id/navigation_create_recipe"
+        android:icon="@drawable/ic_baseline_add_circle_outline_24"
+        android:title="@string/navigation_create_recipe" />
+        />
 </menu>

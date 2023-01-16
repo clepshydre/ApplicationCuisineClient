@@ -44,7 +44,6 @@ class FavoriteFragment : Fragment() {
                 override fun displayRecipeOnClick(v: View, position: Int) {
                     val intent = Intent(v.context, RecipeInfoActivity::class.java).putExtra("id",
                         recipeList[position].id)
-                    intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
                     startActivity(intent)
                 }
 

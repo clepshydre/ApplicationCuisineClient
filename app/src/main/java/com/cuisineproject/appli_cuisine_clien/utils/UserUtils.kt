@@ -11,9 +11,9 @@ object UserUtils {
 
     fun connexion(email:String, password: String):Boolean{
         println("connexion")
-        val userToCreate = User(null,email,password, null, null, null,null)
-        val userToVerify = gson.toJson(userToCreate)
-        return gson.fromJson(RequestUtils.sendPost(URL_CONNEXION, userToVerify), Boolean::class.java)
+        val userToVerify = User(null,email,password, null, null, null,null)
+        val userToVerifyJson = gson.toJson(userToVerify)
+        return gson.fromJson(RequestUtils.sendPost(URL_CONNEXION, userToVerifyJson), Boolean::class.java)
     }
 
     fun createUser(email:String, password: String){

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sv_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.createrecipe.CreateRecipeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_create_recipe_title"
+            style="@style/title_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="@string/create_recipe_title" />
+
+        <TextView
+            android:id="@+id/tv_sub_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="@string/create_recipe_subtitle" />
+
+        <TextView
+            android:id="@+id/tv_title_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recipe_title_" />
+
+        <EditText
+            android:id="@+id/ett_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/tv_preperation_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Temps de préparation" />
+
+        <EditText
+            android:id="@+id/et_preparation_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="min"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tv_cooking_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Temps de cuisson" />
+
+        <EditText
+            android:id="@+id/et_cooking_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="min"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tv_waiting_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Temps de repos" />
+
+        <EditText
+            android:id="@+id/et_waiting_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="min"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tv_difficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Difficulté" />
+
+        <LinearLayout
+            android:id="@+id/ll_difficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/ib_difficulty_level_easy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/white_round_button_background"
+                android:src="@drawable/ic_baseline_fastfood_24" />
+
+            <ImageButton
+                android:id="@+id/ib_difficulty_level_intermediate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/white_round_button_background"
+                android:src="@drawable/ic_baseline_restaurant_24" />
+
+            <ImageButton
+                android:id="@+id/ib_difficulty_level_expert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_round_button_background"
+                android:src="@drawable/ic_baseline_restaurant_menu_24" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="Coût" />
+
+        <LinearLayout
+            android:id="@+id/ll_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ib_cost_level_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_round_button_background"
+                android:src="@drawable/ic_baseline_euro_24" />
+
+            <ImageButton
+                android:id="@+id/ib_cost_level_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_round_button_background"
+                android:src="@drawable/ic_baseline_euro_24" />
+
+            <ImageButton
+                android:id="@+id/ib_cost_level_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/white_round_button_background"
+                android:src="@drawable/ic_baseline_euro_24" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Ingrédients" />
+
+        <LinearLayout
+            android:id="@+id/ll_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:ems="10"
+                android:hint="quantité"
+                android:inputType="numberDecimal" />
+
+            <AutoCompleteTextView
+                android:id="@+id/aet_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="unité" />
+
+            <AutoCompleteTextView
+                android:id="@+id/aet_ingredient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:hint="ingrédient" />
+
+            <ImageButton
+                android:id="@+id/ib_add_ingredient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:src="@drawable/ic_baseline_add_24" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0"
+            android:text="Instructions" />
+
+        <LinearLayout
+            android:id="@+id/ll_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_instruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+
+            <ImageButton
+                android:id="@+id/ib_add_instruction"
+                style="@style/Widget.AppCompat.ImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_add_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Photo:" />
+
+            <Button
+                android:id="@+id/bt_add_photo"
+                style="@style/AppTheme.RoundedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0"
+                android:text="Ajouter" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_save"
+            style="@style/AppTheme.RoundedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="@string/save" />
+
+    </LinearLayout>
+</ScrollView>
