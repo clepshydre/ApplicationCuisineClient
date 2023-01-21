@@ -23,7 +23,8 @@
         android:layout_margin="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        app:cardBackgroundColor="@color/secondaryColor">
+        app:cardBackgroundColor="@color/secondaryColor"
+        app:cardCornerRadius="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +41,7 @@
                     style="@style/title_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:text="Mes informations"
@@ -52,7 +53,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginEnd="15dp"
                     android:layout_weight="0"
                     android:src="@drawable/ic_baseline_navigate_next_24" />
             </LinearLayout>
@@ -186,7 +187,10 @@
     <Button
         android:id="@+id/button"
         style="@style/AppTheme.RoundedButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
         android:text="Deconnecter" />
 </LinearLayout>

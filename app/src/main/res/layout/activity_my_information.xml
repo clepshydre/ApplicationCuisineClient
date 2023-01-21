@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Mes Informations" />
+        android:text="@string/my_informations" />
 
     <TextView
         android:id="@+id/tv_password"
@@ -23,14 +23,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:text="Modifier mon mot de passe:" />
+        android:layout_marginEnd="5dp"
+        android:text="@string/modify_my_password"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/et_old_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Ancien mot de passe"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:hint="@string/old_password"
         android:inputType="textPassword" />
 
     <TextView
@@ -44,8 +47,9 @@
         android:id="@+id/et_new_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nouveau mot de passe"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:hint="@string/new_password"
         android:inputType="textPassword" />
 
     <TextView
@@ -61,12 +65,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:text="@string/date_de_naissance" />
+        android:text="@string/date_de_naissance"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/etd_birthdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:ems="10"
         android:inputType="date" />
     <LinearLayout
@@ -80,18 +87,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:text="@string/je_suis" />
+            android:text="@string/je_suis"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/tv_man"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:text="@string/male" />
 
             <CheckBox
@@ -125,11 +134,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:text="@string/level" />
+            android:text="@string/level"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
@@ -138,14 +150,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_weight="1"
+                android:layout_weight="0"
                 android:text="@string/beginner" />
 
             <CheckBox
                 android:id="@+id/cb_debutant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="0" />
 
             <TextView
                 android:id="@+id/tv_intermediate"
@@ -158,7 +170,7 @@
                 android:id="@+id/cb_intermediate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="0" />
 
             <TextView
                 android:id="@+id/tv_expert"
@@ -186,11 +198,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:text="@string/mon_budget" />
+            android:text="@string/mon_budget"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
@@ -199,7 +213,6 @@
                 android:id="@+id/ib_budget_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/white_round_button_background"
@@ -231,7 +244,11 @@
     <Button
         android:id="@+id/bt_save_my_info"
         style="@style/AppTheme.RoundedButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enregistrer" />
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/save" />
 </LinearLayout>

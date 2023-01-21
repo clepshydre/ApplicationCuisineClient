@@ -8,6 +8,7 @@
     tools:context=".ui.createrecipe.CreateRecipeFragment">
 
     <LinearLayout
+        android:id="@+id/principal_layout_create_recipe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -28,72 +29,129 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:text="@string/create_recipe_subtitle" />
+            android:text="@string/create_recipe_subtitle"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_title_recipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/recipe_title_" />
+            android:layout_marginStart="5dp"
+            android:text="@string/recipe_title_"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/ett_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:hint="Inscrivez ici le nom de la recette"
             android:inputType="text" />
+
+        <TextView
+            android:id="@+id/tv_error_title_create_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/thirdColor"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_preperation_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:text="Temps de préparation" />
+            android:text="Temps de préparation :"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/et_preparation_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:ems="10"
-            android:hint="min"
+            android:hint="@string/minutes"
             android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tv_error_preparation_time_create_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/thirdColor"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_cooking_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:text="Temps de cuisson" />
+            android:text="Temps de cuisson :"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/et_cooking_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:ems="10"
-            android:hint="min"
+            android:hint="@string/minutes"
             android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tv_error_cooking_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/thirdColor"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_waiting_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:text="Temps de repos" />
+            android:text="Temps de repos :"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/et_waiting_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:ems="10"
-            android:hint="min"
+            android:hint="@string/minutes"
             android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tv_error_waiting_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/thirdColor"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_difficulty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:text="Difficulté" />
+            android:layout_marginBottom="10dp"
+            android:text="Difficulté :"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:id="@+id/ll_difficulty"
@@ -104,7 +162,7 @@
                 android:id="@+id/ib_difficulty_level_easy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/white_round_button_background"
                 android:src="@drawable/ic_baseline_fastfood_24" />
@@ -127,12 +185,25 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tv_error_difficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/thirdColor"
+            android:visibility="gone" />
+
+        <TextView
             android:id="@+id/tv_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:text="Coût" />
+            android:text="Coût :"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:id="@+id/ll_cost"
@@ -144,7 +215,7 @@
                 android:id="@+id/ib_cost_level_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/white_round_button_background"
@@ -169,80 +240,141 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_ingredient"
+            android:id="@+id/tv_error_cost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:text="Ingrédients" />
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/thirdColor"
+            android:visibility="gone" />
 
         <LinearLayout
-            android:id="@+id/ll_ingredient"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_quantity"
+            <TextView
+                android:id="@+id/tv_ingredient"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:ems="10"
-                android:hint="quantité"
-                android:inputType="numberDecimal" />
-
-            <AutoCompleteTextView
-                android:id="@+id/aet_unit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="unité" />
-
-            <AutoCompleteTextView
-                android:id="@+id/aet_ingredient"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="6"
-                android:hint="ingrédient" />
+                android:layout_marginStart="5dp"
+                android:layout_weight="4"
+                android:text="Ingrédients :"
+                android:textSize="18sp" />
 
             <ImageButton
                 android:id="@+id/ib_add_ingredient"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
                 android:src="@drawable/ic_baseline_add_24" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/ll_ingredients"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_ingredient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Quantité"
+                    android:inputType="numberDecimal" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/aet_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:completionThreshold="1"
+                    android:hint="Unité" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/aet_ingredient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:completionThreshold="1"
+                    android:hint="Ingrédient" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_instructions"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_error_ingredient"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="0"
-            android:text="Instructions" />
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/thirdColor"
+            android:visibility="gone" />
 
         <LinearLayout
-            android:id="@+id/ll_instructions"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_instruction"
+            <TextView
+                android:id="@+id/tv_instructions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:layout_marginStart="5dp"
+                android:layout_weight="4"
+                android:text="Instructions :"
+                android:textSize="18sp" />
 
             <ImageButton
                 android:id="@+id/ib_add_instruction"
                 style="@style/Widget.AppCompat.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:src="@drawable/ic_baseline_add_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_instruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+
+            <TextView
+                android:id="@+id/tv_error_instruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/thirdColor"
+                android:visibility="gone" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -255,27 +387,44 @@
                 android:id="@+id/tv_photo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
                 android:layout_weight="0"
-                android:text="Photo:" />
+                android:text="Photo:"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/bt_add_photo"
                 style="@style/AppTheme.RoundedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0"
                 android:text="Ajouter" />
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/bt_save"
-            style="@style/AppTheme.RoundedButton"
+        <TextView
+            android:id="@+id/tv_error_general"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/thirdColor"
+            android:visibility="gone"
+            tools:visibility="gone" />
+
+        <Button
+            android:id="@+id/bt_save"
+            style="@style/AppTheme.RoundedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
             android:text="@string/save" />
 
     </LinearLayout>

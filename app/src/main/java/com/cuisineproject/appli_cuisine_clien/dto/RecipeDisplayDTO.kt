@@ -22,7 +22,7 @@ class RecipeDisplayDTO (
 
     var like:Boolean? = null,
 
-    var listIngredientDTO: List<IngredientDTO> = emptyList(),
+    var listComposeDTO: List<ComposeDTO> = emptyList(),
 
     var listInstructionDTO: List<InstructionDTO> = emptyList()
 )

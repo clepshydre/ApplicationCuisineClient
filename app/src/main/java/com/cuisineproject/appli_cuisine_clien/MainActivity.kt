@@ -1,6 +1,7 @@
 package com.cuisineproject.appli_cuisine_clien
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         model.errorGeneralMessage.observe(this){message ->
             if(message != null) {
                 binding.tvGeneralMessage.isVisible = true
-                binding.tvGeneralMessage.setTextColor(R.color.thirdColor)
+                binding.tvGeneralMessage.setTextColor(Color.RED)
                 binding.tvGeneralMessage.text = message
             }else{
                 binding.tvGeneralMessage.isVisible = false
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         model.successMessage.observe(this){ message ->
             if(message != null ){
                 binding.tvGeneralMessage.isVisible = true
-                binding.tvGeneralMessage.setTextColor(R.color.black)
+                binding.tvGeneralMessage.setTextColor(Color.GREEN)
                 binding.tvGeneralMessage.text = message
             }else{
                 binding.tvGeneralMessage.isVisible = false

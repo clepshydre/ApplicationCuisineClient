@@ -2,6 +2,7 @@ package com.cuisineproject.appli_cuisine_clien.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.cuisineproject.appli_cuisine_clien.constant.ERROR_GENERAL_MESSAGE
 import com.cuisineproject.appli_cuisine_clien.constant.ERROR_MESSAGE_INVALID_MAIL
 import com.cuisineproject.appli_cuisine_clien.constant.ERROR_MESSAGE_INVALID_PASSWORD
 import com.cuisineproject.appli_cuisine_clien.constant.SUCCESS_MESSAGE_CREATION_ACCOUNT
@@ -25,7 +26,6 @@ class MainActivityViewModel: ViewModel() {
         errorPasswordMessage.postValue(null)
         errorGeneralMessage.postValue(null)
         runInProgress.postValue(true)
-
         thread {
             try {
                 firstConnexion.postValue(UserUtils.connexion(email, password))
@@ -45,7 +45,7 @@ class MainActivityViewModel: ViewModel() {
                         }
                     }
                 }else{
-                    errorGeneralMessage.postValue(e.message)
+                    errorGeneralMessage.postValue(ERROR_GENERAL_MESSAGE)
                 }
                 runInProgress.postValue(false)
             }
@@ -79,8 +79,8 @@ class MainActivityViewModel: ViewModel() {
                                 errorGeneralMessage.postValue(e.errorMessage)
                             }
                         }
-                    }else{//TODO
-                        errorGeneralMessage.postValue(e.message)
+                    }else{
+                        errorGeneralMessage.postValue(ERROR_GENERAL_MESSAGE)
                     }
                     runInProgress.postValue(false)
                 }

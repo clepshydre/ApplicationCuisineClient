@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.cuisineproject.appli_cuisine_clien.constant.URL_IMAGE
 import com.cuisineproject.appli_cuisine_clien.databinding.ActivityRecipeInfoBinding
-import com.cuisineproject.appli_cuisine_clien.dto.IngredientDTO
+import com.cuisineproject.appli_cuisine_clien.dto.ComposeDTO
 import com.cuisineproject.appli_cuisine_clien.dto.InstructionDTO
 import com.cuisineproject.appli_cuisine_clien.dto.RecipeDisplayDTO
 import com.cuisineproject.appli_cuisine_clien.viewmodel.RecipeInfoViewModel
@@ -38,7 +38,7 @@ class RecipeInfoActivity : AppCompatActivity() {
         setTotalTime(recipe.totalTime)
         setDifficulty(recipe.difficulty)
         setCost(recipe.cost)
-        setIngredients(recipe.listIngredientDTO)
+        setIngredients(recipe.listComposeDTO)
         setTimeSection(recipe)
         setPreparationSection(recipe.listInstructionDTO)
 
@@ -84,10 +84,10 @@ class RecipeInfoActivity : AppCompatActivity() {
         }
     }
 
-    private fun setIngredients(listIngredientDTO: List<IngredientDTO>) {
+    private fun setIngredients(listIngredientDTO: List<ComposeDTO>) {
         addTitleTextView("Ingrédients:")
         listIngredientDTO.forEach { ingredient ->
-            addTextView("${removeDecimalZero(ingredient.quantity)} ${ingredient.unit}: ${ingredient.name}")
+            addTextView("${removeDecimalZero(ingredient.quantity)} ${ingredient.unitName}: ${ingredient.ingredientName}")
         }
     }
     private fun removeDecimalZero(quantity: Double?): String? {

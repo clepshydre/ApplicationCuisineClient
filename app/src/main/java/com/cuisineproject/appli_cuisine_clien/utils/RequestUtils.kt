@@ -2,6 +2,7 @@ package com.cuisineproject.appli_cuisine_clien.utils
 
 
 
+import com.cuisineproject.appli_cuisine_clien.constant.ERROR_GENERAL_MESSAGE
 import com.cuisineproject.appli_cuisine_clien.model.ErrorBean
 import com.cuisineproject.appli_cuisine_clien.model.MyException
 import com.google.gson.Gson
@@ -29,15 +30,19 @@ object RequestUtils {
 
             //Analyse du code retour
             if (!it.isSuccessful) {
+                println("unsucessful")
                 val json = it.body?.string() ?: ""
                 if(json.isNotBlank()) {
+                    println("json not blank")
                     val errorBean = gson.fromJson(json, ErrorBean::class.java)
                     if(!errorBean.errorMessage.isNullOrBlank()){
+                        println("error message")
                         throw MyException(errorBean.errorMessage, errorBean.errorCode)
                     }
                 }
                 throw Exception("Réponse du serveur incorrect :${it.code}")
             }
+            println("Successful")
             //Résultat de la requête
             it.body?.string() ?: ""
         }
@@ -63,6 +68,8 @@ object RequestUtils {
                     if(!errorBean.errorMessage.isNullOrBlank()){
                         println("errorMessage not blank or null")
                         throw MyException(errorBean.errorMessage, errorBean.errorCode)
+                    }else{
+                        throw Exception(ERROR_GENERAL_MESSAGE)
                     }
                 }
                 throw IOException("Unexpected code $response")

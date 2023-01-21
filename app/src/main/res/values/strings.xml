@@ -12,10 +12,10 @@
     <string name="main_connexion_button">Se connecter</string>
     <string name="account_title">Compte</string>
     <string name="favorite_title">Favoris</string>
-    <string name="mon_budget">Mon budget:</string>
-    <string name="information_user_first_description">Ici vous pouvez renseigner vos informations afin que l\'application vous propose des recettes adapté pour vous. Vous pouvez le faire maintenant ou passer et y revenir plus tard</string>
-    <string name="date_de_naissance">Date de naissance:</string>
-    <string name="je_suis">Je suis:</string>
+    <string name="mon_budget">Mon budget :</string>
+    <string name="information_user_first_description">Ici vous pouvez renseigner vos informations afin que l\'application vous propose des recettes adapté à vos besoins. Vous pouvez le faire maintenant ou passer et y revenir plus tard</string>
+    <string name="date_de_naissance">Date de naissance :</string>
+    <string name="je_suis">Je suis :</string>
     <string name="male">Un cuisinier</string>
     <string name="female">Une cuisinière</string>
     <string name="level">Mon niveau :</string>
@@ -30,6 +30,11 @@
     <string name="navigation_create_recipe">Créer recette</string>
     <string name="create_recipe_subtitle">Merci de renseigner tous les éléments de votre recette</string>
     <string name="create_recipe_title">Ajouter une recette</string>
-    <string name="recipe_title_">Titre de la recette</string>
+    <string name="recipe_title_">Titre de la recette :</string>
+    <string name="my_informations">Mes Informations</string>
+    <string name="modify_my_password">Modifier mon mot de passe:</string>
+    <string name="old_password">Ancien mot de passe</string>
+    <string name="new_password">Nouveau mot de passe</string>
+    <string name="minutes">En minutes</string>
 
 </resources>
